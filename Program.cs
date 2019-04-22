@@ -20,17 +20,29 @@ namespace Dealership {
       string stringMaxPrice = Console.ReadLine();
       int maxPrice = int.Parse(stringMaxPrice);
 
+      Console.WriteLine("Enter a preferred millage: ");
+      string stringMaxMiles = Console.ReadLine();
+      int maxMiles = int.Parse(stringMaxMiles);
+
+
+
       List<Car> CarsMatchingSearch = new List<Car>(0);
 
       foreach (Car automobile in Cars)
       {
-        if (automobile.WorthBuying(maxPrice))
+        if (automobile.WorthBuying(maxPrice) && automobile.MillageCount(maxMiles))
         {
           CarsMatchingSearch.Add(automobile);
         }
       }
 
-      foreach(Car automobile in CarsMatchingSearch)
+      if (CarsMatchingSearch.Count == 0)
+      {
+        Console.WriteLine("Sorry, we don't have any cars in that range.");
+        Main();
+      }
+
+      foreach (Car automobile in CarsMatchingSearch)
       {
         Console.WriteLine("----------------------");
         Console.WriteLine(automobile.GetMakeModel());

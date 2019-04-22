@@ -43,8 +43,13 @@ class Car
   }
 
   public bool WorthBuying(int maxPrice)
-{
-  return (Price < maxPrice);
+  {
+    return (Price < maxPrice);
+  }
+
+  public bool MillageCount(int maxMiles)
+  {
+    return (Miles < maxMiles);
   }
 }
 }
