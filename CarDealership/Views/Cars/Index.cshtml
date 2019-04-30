@@ -1,17 +1,39 @@
 @using Dealership.Models;
 
-<h1>Cars for sale</h1>
-<ul>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>Hello friend!</title>
+    <link href="https://fonts.googleapis.com/css?family=Ruge+Boogie|The+Girl+Next+Door" rel="stylesheet">
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="~/css/styles.css">
+  </head>
+  <body class="container">
+    <h1>Cars for sale</h1>
 
-  @foreach (Car car in Model)
-  {
-    <li>@car.MakeModel</li>
     <ul>
-      <li>$@car.Price</li>
-      <li>@car.Miles </li>
-      <li>@car.InfoAboutCar</li>
-    </ul>
-  }
 
-</ul>
-<a href="/cars/new">List a new car for sale</a>
+      @foreach (Car car in Model)
+      {
+        <li>@car.MakeModel</li>
+        <ul>
+        <li>$@car.Price</li>
+        <li>@car.Miles miles</li>
+        <li>@car.InfoAboutCar</li>
+        </ul>
+        <form action="/cars/delete" method="post">
+          <button type="submit" name="button">Remove this car</button>
+        </form>
+
+      }
+
+    </ul>
+    <a href="/cars/new">List a new car for sale</a>
+
+    <div class="barb">
+      <img src="https://media.giphy.com/media/VHwNnBg2IQCYO9tU8h/giphy.gif" alt="Barbie Gif">
+    </div>
+
+    </html>
+  </body>

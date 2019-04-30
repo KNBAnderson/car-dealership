@@ -3,19 +3,22 @@
   <head>
     <meta charset='utf-8'>
     <title>Hello friend!</title>
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
+    <link href="https://fonts.googleapis.com/css?family=Ruge+Boogie|The+Girl+Next+Door" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/styles.css">
   </head>
   <body>
     <h1>Cars for sale</h1>
 
     <form action="/cars" method="post">
       <label for="makeModel">Add a the make and model:</label>
-      <input id="makeModel" name="makeModel" type="text">
+      <input id="makeModel" name="makeModel" type="text"><br>
 
       <label for="price">Add the price:</label>
-      <input id="price" name="price" type="number">
+      <input id="price" name="price" type="number"><br>
 
       <label for="miles">Add the milage:</label>
-      <input id="miles" name="miles" type="text" max=2147483647>
+      <input id="miles" name="miles" type="text" max=2147483647><br>
 
       <label for="infoAboutCar">Add information about the car:</label>
       <input id="infoAboutCar" name="infoAboutCar" type="text">

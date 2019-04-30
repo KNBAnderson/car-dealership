@@ -1,0 +1,26 @@
+body {
+  background-color: #E0218A;
+  color: #FFFFFF;
+  font-family: 'The Girl Next Door', cursive;
+  background-image: url("https://i.gifer.com/origin/b1/b195bd28939ffec5324c85eacd9e5196_w200.gif");
+  background-repeat: repeat;
+}
+
+h1 {
+  font-family: 'Ruge Boogie', cursive;
+  text-align: center;
+  font-size: 5em;
+}
+
+a {
+  color: pink;
+  font-size: 3em;
+}
+
+.barb {
+  text-align: center;
+}
+
+ul {
+  font-size: 20px;
+}

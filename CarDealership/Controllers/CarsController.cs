@@ -27,5 +27,12 @@ namespace Dealership.Controllers
       Car newCar = new Car(makeModel, price, miles, infoAboutCar);
       return RedirectToAction("Index");
     }
+
+    [HttpPost("/cars/delete")]
+    public ActionResult Index()
+    {
+      Car.RemoveCar(this);
+      return View();
+    }
   }
 }
