@@ -3,12 +3,17 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using Dealership.Controllers;
 using Dealership.Models;
+using System;
 
 namespace Dealership.Tests
 {
   [TestClass]
-  public class CarsControllerTest
+  public class CarsControllerTest : IDisposable
   {
+    public void Dispose()
+    {
+      Car.ClearAll();
+    }
 
     [TestMethod]
     public void Index_HasCorrectModelType_CarsList()
@@ -31,7 +36,7 @@ namespace Dealership.Tests
         CarsController controller = new CarsController();
 
         //Act
-        IActionResult view = controller.CreateCar("Barbie Dream Car", 12, 32, "This is a car");
+        IActionResult view = controller.Create("Barbie Dream Car", 12, 32, "This is a car");
 
         //Assert
         Assert.IsInstanceOfType(view, typeof(RedirectToActionResult));
@@ -42,7 +47,7 @@ namespace Dealership.Tests
     {
         //Arrange
         CarsController controller = new CarsController();
-        RedirectToActionResult actionResult = controller.CreateCar("Barbie Dream Car", 12, 32, "This is a car") as RedirectToActionResult;
+        RedirectToActionResult actionResult = controller.Create("Barbie Dream Car", 12, 32, "This is a car") as RedirectToActionResult;
 
         //Act
         string result = actionResult.ActionName;

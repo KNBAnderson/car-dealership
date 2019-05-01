@@ -5,44 +5,41 @@ namespace Dealership.Models {
 
   public class Car
   {
-    private string _makeModel;
-    private int _price;
-    private int _miles;
-    private string _info;
-    private static List<Car> _carsList = new List<Car> {};
+    public string MakeModel {get; set;}
+    public int Price {get; set;}
+    public int Miles {get; set;}
+    public string Info {get; set;}
+    public static List<Car> CarsList {get; set;} = new List<Car> {};
+    public int Id {get; set;}
 
     public Car(string makeModel, int price, int miles, string infoAboutCar)
     {
-      _makeModel = makeModel;
-      _price = price;
-      _miles = miles;
-      _info = infoAboutCar;
-      _carsList.Add(this);
+      MakeModel = makeModel;
+      Price = price;
+      Miles = miles;
+      Info = infoAboutCar;
+      CarsList.Add(this);
+      Id = CarsList.Count;
     }
-
-    public string MakeModel { get => _makeModel; set => _makeModel = value; }
-
-    public int Price { get => _price; set => _price = value; }
-
-    public int Miles { get => _miles; set => _miles = value; }
-
-    public string InfoAboutCar { get => _info; set => _info = value; }
-
-    public static List<Car> CarsList { get => _carsList; set => _carsList = value; }
 
     public bool WorthBuying(int maxPrice)
     {
-      return (_price < maxPrice);
+      return (Price < maxPrice);
     }
 
     public bool MileageCount(int maxMiles)
     {
-      return (_miles < maxMiles);
+      return (Miles < maxMiles);
     }
 
-    public static void RemoveCar(Car car)
+    public static void RemoveCar(int id)
     {
-      _carsList.Remove(car);
+      CarsList.Remove(CarsList[id - 1]);
+    }
+
+    public static void ClearAll()
+    {
+      CarsList.Clear();
     }
   }
 }

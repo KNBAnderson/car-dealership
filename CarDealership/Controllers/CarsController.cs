@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Dealership.Models;
+using System;
 
 namespace Dealership.Controllers
 {
@@ -16,23 +17,24 @@ namespace Dealership.Controllers
     }
 
     [HttpGet("/cars/new")]
-    public ActionResult CreateForm()
+    public ActionResult New()
     {
       return View();
     }
 
     [HttpPost("/cars")]
-    public ActionResult CreateCar(string makeModel, int price, int miles, string infoAboutCar)
+    public ActionResult Create(string makeModel, int price, int miles, string infoAboutCar)
     {
       Car newCar = new Car(makeModel, price, miles, infoAboutCar);
       return RedirectToAction("Index");
     }
 
-    [HttpPost("/cars/delete")]
-    public ActionResult Index()
-    {
-      Car.RemoveCar(this);
-      return View();
-    }
+    // [HttpPost("/cars/delete")]
+    // public ActionResult Index()
+    // {
+    //   Car.RemoveCar(this);
+    //   return View();
+    // }
+  
   }
 }
