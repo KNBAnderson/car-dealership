@@ -29,12 +29,12 @@ namespace Dealership.Controllers
       return RedirectToAction("Index");
     }
 
-    // [HttpPost("/cars/delete")]
-    // public ActionResult Index()
-    // {
-    //   Car.RemoveCar(this);
-    //   return View();
-    // }
-  
+    [HttpPost("/cars/{id}/delete")]
+    public ActionResult Destroy(int id)
+    {
+      Car.RemoveCar(id);
+      return RedirectToAction("Index");
+    }
+
   }
 }
