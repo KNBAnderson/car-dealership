@@ -13,22 +13,19 @@
     <h1>Cars for sale</h1>
 
     <ul>
-
+    @if (Model.Count == 0)
+    {
+      <p>You have no cars :(!</p>
+    }
+    @if(Model.Count != 0)
+    {
       @foreach (Car car in Model)
       {
-        <li>@car.MakeModel</li>
-        <ul>
-        <li>$@car.Price</li>
-        <li>@car.Miles miles</li>
-        <li>@car.Info</li>
-        </ul>
-        <form action="/cars/@car.Id/delete" method="post">
-          <button type="submit" name="button">Remove this car</button>
-        </form>
-
+        <li><a href='/cars/@car.Id'>@car.MakeModel</a></li>
       }
-
+    }
     </ul>
+
     <a href="/cars/new">List a new car for sale</a>
 
     <div class="barb">

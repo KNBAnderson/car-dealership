@@ -41,5 +41,10 @@ namespace Dealership.Models {
     {
       CarsList.Clear();
     }
+
+    public static Car Find(int searchId)
+    {
+      return CarsList[searchId-1];
+    }
   }
 }

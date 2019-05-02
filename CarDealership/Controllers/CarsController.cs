@@ -36,5 +36,12 @@ namespace Dealership.Controllers
       return RedirectToAction("Index");
     }
 
+    [HttpGet("/cars/{id}")]
+    public ActionResult Show(int id)
+    {
+      Car car = Car.Find(id);
+      return View(car);
+    }
+
   }
 }
